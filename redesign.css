@@ -67,3 +67,45 @@ h1,h2,h3,p{margin:0}h1,h2,h3{line-height:1.18;letter-spacing:-.045em}button,inpu
 .usage .photo{background-color:#edf6fa}
 .usage .scene-hand>img{max-width:558px;margin-inline:auto}
 .usage .scene-arm>img{max-width:469px;margin-inline:auto}
+
+/* Approved uncropped banner composition: copy and full photographs have separate space. */
+.hero,.closing,.water-banner{background:#e9f8ff;isolation:isolate;overflow:hidden}
+.hero{display:grid;grid-template-columns:40% 60%;min-height:0;align-items:center}
+.hero-photo{position:relative;inset:auto;grid-column:2;grid-row:1;width:100%;height:auto;max-width:100%;object-fit:contain;filter:none}
+.hero:before,.closing:before{display:none}
+.hero-inner{grid-column:1;grid-row:1;width:auto;margin:0;padding:40px 0 40px max(36px,calc((100vw - 1180px)/2));z-index:2}
+.hero h1{font-size:clamp(32px,3.5vw,64px)}
+.hero-sub{font-size:clamp(16px,1.5vw,23px)}
+.water-banner,.closing{display:grid;grid-template-columns:40% 60%;align-items:center;padding:0;color:var(--navy);text-align:left}
+.banner-copy{padding:32px 20px 32px max(36px,calc((100vw - 1180px)/2))}
+.water-banner h2{font-size:clamp(26px,2.7vw,42px)}
+.water-banner h2 em{color:var(--blue);font-style:normal}
+.water-banner p{color:var(--muted)}
+.banner-photo{display:block;width:100%;height:auto;object-fit:contain}
+.closing{margin-top:36px}
+.closing-inner.wrap{width:auto;margin:0;padding:32px 20px 32px max(36px,calc((100vw - 1180px)/2))}
+.closing h2{font-size:clamp(28px,2.8vw,42px)}
+.film-visual{width:min(100%,900px);height:auto;max-height:none;margin-inline:auto;background:transparent;overflow:hidden}
+.film-visual .photo{width:100%;height:auto;max-width:none;aspect-ratio:512/341;margin:0}
+.film-visual .photo>img{width:100%;height:auto;object-fit:contain;filter:none}
+@media(max-width:1000px) and (min-width:701px){
+ .hero-inner,.banner-copy,.closing-inner.wrap{padding-left:30px}
+ .hero h1{font-size:34px}.hero-sub{font-size:16px}
+ .hero .button,.closing .button{min-width:180px;font-size:15px;padding-inline:18px;gap:20px}
+ .closing p:not(.eyebrow){font-size:13px}
+}
+@media(max-width:700px){
+ .hero,.water-banner,.closing{display:flex;flex-direction:column;align-items:stretch;min-height:0;padding:0;background:#e9f8ff}
+ .hero-inner{width:100%;margin:0;padding:30px 24px 18px;order:0}
+ .hero h1{font-size:clamp(34px,8vw,48px)}
+ .hero-sub{font-size:16px}
+ .hero-photo{position:static;inset:auto;order:1;width:100%;max-width:100%;height:auto;object-fit:contain}
+ .hero:before,.closing:before{display:none}
+ .banner-copy,.closing-inner.wrap{width:100%;margin:0;padding:28px 24px 16px}
+ .water-banner h2{font-size:29px}
+ .banner-photo{width:100%;height:auto;max-width:100%;object-fit:contain}
+ .closing{padding-bottom:0}
+ .closing h2{font-size:30px}
+ .film-visual{height:auto;max-height:none;aspect-ratio:auto}
+ .film-visual .photo{height:auto;aspect-ratio:512/341;width:100%;margin:0}
+}
