@@ -1,0 +1,110 @@
+{
+  "set": {
+    "width": 558,
+    "height": 342,
+    "bytes": 166388,
+    "source": "assets/scenes.png",
+    "crop": [
+      5,
+      0,
+      558,
+      342
+    ]
+  },
+  "full": {
+    "width": 469,
+    "height": 342,
+    "bytes": 133782,
+    "source": "assets/scenes.png",
+    "crop": [
+      567,
+      0,
+      469,
+      342
+    ]
+  },
+  "mini": {
+    "width": 497,
+    "height": 342,
+    "bytes": 155162,
+    "source": "assets/scenes.png",
+    "crop": [
+      1039,
+      0,
+      497,
+      342
+    ]
+  },
+  "home": {
+    "width": 558,
+    "height": 323,
+    "bytes": 138150,
+    "source": "assets/scenes.png",
+    "crop": [
+      5,
+      347,
+      558,
+      323
+    ]
+  },
+  "bag": {
+    "width": 469,
+    "height": 323,
+    "bytes": 151414,
+    "source": "assets/scenes.png",
+    "crop": [
+      567,
+      347,
+      469,
+      323
+    ]
+  },
+  "mascot": {
+    "width": 512,
+    "height": 341,
+    "bytes": 211094,
+    "source": "git:706da7a:assets/scenes.png",
+    "crop": [
+      1024,
+      341,
+      512,
+      341
+    ]
+  },
+  "hand": {
+    "width": 558,
+    "height": 348,
+    "bytes": 174134,
+    "source": "assets/scenes.png",
+    "crop": [
+      5,
+      676,
+      558,
+      348
+    ]
+  },
+  "arm": {
+    "width": 469,
+    "height": 348,
+    "bytes": 146644,
+    "source": "assets/scenes.png",
+    "crop": [
+      567,
+      676,
+      469,
+      348
+    ]
+  },
+  "runners": {
+    "width": 512,
+    "height": 341,
+    "bytes": 214938,
+    "source": "git:706da7a:assets/scenes.png",
+    "crop": [
+      1024,
+      683,
+      512,
+      341
+    ]
+  }
+}
