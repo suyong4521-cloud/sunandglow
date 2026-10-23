@@ -1,0 +1,33 @@
+/* 모든 페이지 공통: 개인정보 팝업, 검토 표시, 교육용 띠. 디자인은 각 페이지 index.html 안의 <style>에 있습니다. */
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.edu-strip{background:#111;color:#eee;font:12px/1.4 "Pretendard Variable",Pretendard,system-ui,sans-serif;text-align:center;padding:6px 12px}
+.ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;background:#e9e9e7;color:#77756f;font:12.5px/1.45 "Pretendard Variable",Pretendard,system-ui,sans-serif}
+.ph span{max-width:260px}
+.ph.dark{background:#2a2a2c;color:#aaa}
+.safe-note{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;line-height:1.5;color:#5c5c5c;background:#f4f4f2;border-radius:8px;padding:10px 12px}
+.safe-note button{background:none;border:0;padding:0;text-decoration:underline;color:inherit;font-weight:700}
+.todo{background:#fff3b0;color:#4a3b00;border-radius:3px;padding:0 3px;font-weight:700;font-style:normal}
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:rgba(10,10,14,.6);padding:16px}
+.modal.open{display:flex}
+.modal-box{background:#fff;color:#16161a;max-width:520px;width:100%;max-height:88vh;overflow:auto;border-radius:20px;padding:28px 24px;font:15px/1.6 "Pretendard Variable",Pretendard,system-ui,sans-serif;text-align:left;letter-spacing:0;text-transform:none}
+.modal-box h2{font:800 21px/1.3 inherit;font-family:inherit;margin:8px 0 6px}
+.modal-box .badge{display:inline-block;font-size:12px;font-weight:700;padding:4px 10px;border-radius:99px;background:#16161a;color:#fff}
+.modal-box ol{padding-left:20px;margin:14px 0;font-size:14.5px}
+.modal-box ol li{margin-bottom:9px}
+.modal-box strong{background:linear-gradient(transparent 60%,#ffe58a 60%)}
+.modal-box label{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;font-weight:700;padding:14px;border-radius:12px;background:#f3f3f6;margin:6px 0 16px;cursor:pointer}
+.modal-box label input{width:20px;height:20px;margin-top:1px;flex:none}
+.modal-actions{display:flex;gap:10px}
+.modal-actions button{flex:1;padding:14px;border-radius:12px;font-weight:700;border:0}
+.modal-actions .cancel{background:#ececf0;color:#16161a}
+.modal-actions .ok{background:#16161a;color:#fff}
+.modal-actions .ok:disabled{opacity:.35;cursor:not-allowed}
+.review-panel{position:fixed;right:16px;bottom:16px;z-index:90;width:min(380px,calc(100vw - 32px));max-height:52vh;overflow:auto;background:#1b1b1f;color:#f3f3f3;border-radius:16px;padding:16px 18px;font:13px/1.55 "Pretendard Variable",Pretendard,system-ui,sans-serif;box-shadow:0 20px 40px -10px rgba(0,0,0,.5);text-align:left}
+.review-panel b{display:block;font-size:14px;margin-bottom:6px;color:#ffe58a}
+.review-panel .rp-ref{color:#b8e0ff;margin:0 0 8px}
+.review-panel ul{padding-left:18px;margin:0}
+.review-panel button{position:absolute;top:10px;right:12px;background:none;border:0;color:#aaa;font-size:16px}
