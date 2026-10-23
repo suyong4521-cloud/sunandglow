@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "width": 2172,
+    "height": 724
+  },
+  "runners": {
+    "width": 2172,
+    "height": 724
+  },
+  "set": {
+    "width": 1564,
+    "height": 1006
+  },
+  "full": {
+    "width": 1564,
+    "height": 1006
+  },
+  "mini": {
+    "width": 1564,
+    "height": 1006
+  },
+  "home": {
+    "width": 1659,
+    "height": 948
+  },
+  "bag": {
+    "width": 1564,
+    "height": 1006
+  },
+  "hand": {
+    "width": 1563,
+    "height": 1006
+  },
+  "arm": {
+    "width": 1564,
+    "height": 1006
+  },
+  "mascot": {
+    "width": 1564,
+    "height": 1006
+  },
+  "mobile": {
+    "width": 1122,
+    "height": 1402
+  }
+}
