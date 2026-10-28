@@ -16,3 +16,15 @@
     observer.observe(element);
   });
 })();
+
+/* Keep the mobile shortcut clear of the original form and keyboard. */
+(function () {
+  'use strict';
+  var bar = document.getElementById('mobile-apply');
+  var form = document.getElementById('lead-form');
+  if (!bar || !form || !window.IntersectionObserver) return;
+  var observer = new IntersectionObserver(function (entries) {
+    bar.hidden = entries[0].isIntersecting;
+  }, { rootMargin: '0px 0px 70px 0px' });
+  observer.observe(form);
+})();

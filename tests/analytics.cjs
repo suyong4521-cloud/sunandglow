@@ -47,7 +47,7 @@ let browser;
   const links = await page.locator('[data-event]').evaluateAll(a => a.map(e => ({
     id: e.dataset.ctaId, name: e.dataset.event, product: e.dataset.productId
   })));
-  assert.equal(links.length, 21);
+  assert.equal(links.length, 22);
   for (const link of links) {
     const before = (await events(link.name)).length;
     await page.evaluate(id => {
@@ -112,6 +112,20 @@ let browser;
     await page.waitForFunction(() => window.__events.some(e => e.name === 'view_item_list'));
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
   }
+  // The mobile shortcut scrolls to the original form, then gets out of its way.
+  await page.goto(base + '/');
+  await page.locator('#mobile-apply a').click();
+  await page.waitForFunction(() => document.getElementById('mobile-apply').hidden);
+  assert.equal(await page.locator('#cta-submit').textContent().then(t => t.includes('구매신청')), true);
+  await page.locator('#f-name').fill('테스트');
+  assert.equal(await page.locator('#mobile-apply').isVisible(), false);
+  await page.locator('#f-name').blur();
+  await page.evaluate(() => scrollTo({ top: 0, behavior: 'instant' }));
+  await page.waitForFunction(() => !document.getElementById('mobile-apply').hidden);
+  assert.equal(await page.locator('#mobile-apply').isVisible(), true);
+  await page.setViewportSize({ width: 1440, height: 900 });
+  assert.equal(await page.locator('#mobile-apply').isVisible(), false);
+  await page.setViewportSize({ width: 390, height: 900 });
   assert.deepEqual(errors, []);
   // Exercise the successful delivery callback as well as the timeout path above.
   await page.goto(base + '/');
@@ -156,7 +170,7 @@ let browser;
   await page.locator('#privacy-agree').check();
   await page.locator('#privacy-ok').click();
   await page.waitForURL('**/result.html');
-  console.log('PASS: 23 links, configuration, URL sanitization, form validation, modal actions, single completion, input deletion, blocked analytics fallback, result reload, desktop/mobile exposure and layout.');
+  console.log('PASS: 24 links, configuration, URL sanitization, form validation, modal actions, single completion, input deletion, blocked analytics fallback, result reload, desktop/mobile exposure and layout.');
 })().catch(error => { console.error(error); process.exitCode = 1; }).finally(async () => {
   if (browser) await browser.close();
   server.kill();

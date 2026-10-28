@@ -12,3 +12,5 @@ The homepage uses responsive WebP images with uncropped product silhouettes and 
 Hero and story: 2172×724 with 960×320 alternatives. All other images: 1200×800 with 600×400 alternatives. Mobile banner text sits above the image, so the photograph does not have to stretch behind it. The set catalog image has a small CSS crop of its surrounding empty space to align the bottle scale with the individual product images; bottle proportions are preserved.
 
 Generated source PNGs remain in the task's image generation history. The site serves only these WebP derivatives. Titles, prices, form controls, and calls to action remain HTML. The purchase application and analytics behavior are unchanged by this visual refresh.
+
+- `size-in-hand`: an illustrative comparison of the 60 ml and 15 ml bottles held at a shared camera distance. Responsive exports are 1200×800 and 600×400. No measured physical dimensions are claimed on the page.
