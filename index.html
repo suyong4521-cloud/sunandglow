@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SUN&amp;GLOW 선미스트 | 바르지 말고 뿌리세요</title>
 <meta name="description" content="러너를 위한 얼굴·몸 겸용 SPF50+ PA++++ 데일리 선미스트.">
@@ -15,49 +16,49 @@
 <link rel="stylesheet" href="base.css">
 
 <link rel="stylesheet" href="redesign.css?v=20261023-unified-labels">
-<!-- GA4 (Day 34에 여기에 붙이기) -->
+<script defer src="analytics.js"></script>
 <!-- Meta Pixel (Day 35에 여기에 붙이기) -->
 <!-- Microsoft Clarity (Day 38에 여기에 붙이기) -->
 <!-- Schema JSON-LD (Day 29) -->
 </head>
 <body>
-<a class="skip-link" href="#main">본문으로 바로가기</a>
+<a class="skip-link" href="#main" data-event="navigation_click" data-placement="skip_link" data-cta-id="skip_main" data-target-section="main">본문으로 바로가기</a>
 <header class="header"><div class="header-inner">
-  <a class="brand" href="./" aria-label="SUN&GLOW 홈"><img class="brand-logo" src="assets/brand-update/logo-transparent.png" alt="SUN&amp;GLOW" width="1372" height="1146"><strong aria-hidden="true">SUN&amp;GLOW</strong></a>
-  <nav aria-label="주 메뉴"><a href="#best">제품</a><a href="#how-to">사용법</a><a href="#story">브랜드 스토리</a></nav>
-  <a class="cart" href="#apply" id="cta-top" aria-label="구매 신청으로 이동"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M3 4h4l3 15h13l3-11H8M12 24h.1M22 24h.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  <a class="brand" href="./" aria-label="SUN&GLOW 홈" data-event="navigation_click" data-placement="header" data-cta-id="header_home" data-target-section="home"><img class="brand-logo" src="assets/brand-update/logo-transparent.png" alt="SUN&amp;GLOW" width="1372" height="1146"><strong aria-hidden="true">SUN&amp;GLOW</strong></a>
+  <nav aria-label="주 메뉴"><a href="#best" data-event="navigation_click" data-placement="header" data-cta-id="header_products" data-target-section="best">제품</a><a href="#how-to" data-event="navigation_click" data-placement="header" data-cta-id="header_how_to" data-target-section="how_to">사용법</a><a href="#story" data-event="navigation_click" data-placement="header" data-cta-id="header_story" data-target-section="story">브랜드 스토리</a></nav>
+  <a class="cart" href="#apply" id="cta-top" aria-label="구매 신청으로 이동" data-event="cta_click" data-placement="header" data-cta-id="cta_top" data-target-section="apply"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M3 4h4l3 15h13l3-11H8M12 24h.1M22 24h.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div></header>
 <main id="main">
   <section class="hero" aria-labelledby="hero-title"><picture class="hero-media"><source media="(max-width:700px)" srcset="assets/hd/mobile-small.webp 768w, assets/hd/mobile-large.webp 1122w" sizes="100vw"><img class="hero-photo" src="assets/hd/hero-large.webp" srcset="assets/hd/hero-small.webp 768w, assets/hd/hero-large.webp 2172w" sizes="100vw" alt="" fetchpriority="high" decoding="async" width="2172" height="724"></picture><div class="hero-inner">
     <p class="eyebrow">RUN LIGHT, GLOW ON</p>
     <h1 id="hero-title">러닝은 계속,<br>선케어는 <em>가볍게.</em></h1>
     <p class="hero-sub">집에서는 본품, 러닝백에는 미니.</p>
-    <a class="button lime" href="#featured" id="cta-main">더 알아보기 <span aria-hidden="true">›</span></a>
+    <a class="button lime" href="#featured" id="cta-main" data-event="cta_click" data-placement="hero" data-cta-id="cta_main" data-target-section="featured">더 알아보기 <span aria-hidden="true">›</span></a>
   </div></section>
 
   <section class="featured wrap" id="featured" aria-labelledby="featured-title">
     <div class="photo scene-set" role="img" aria-label="햇살이 비치는 강변에 놓인 60ml 선미스트와 15ml 미니 세트"><img src="assets/hd/set-large.webp" srcset="assets/hd/set-small.webp 768w, assets/hd/set-large.webp 1564w" sizes="(max-width:700px) calc(100vw - 36px), 590px" alt="" loading="lazy" decoding="async" width="1564" height="1006"></div>
-    <div class="featured-copy"><div class="product-brand"><img class="product-brand-logo" src="assets/brand-update/logo-transparent.png" alt="SUN&amp;GLOW" width="1372" height="1146"><strong aria-hidden="true">SUN&amp;GLOW</strong></div><h2 id="featured-title">데일리 선미스트 세트</h2><p class="size">60ml 본품 + 15ml 미니</p><p class="description">하나의 세트로,<br>일상도, 아웃도어도 언제나 산뜻하게.</p><a class="button lime" href="#apply">세트 자세히 보기 <span aria-hidden="true">›</span></a></div>
+    <div class="featured-copy"><div class="product-brand"><img class="product-brand-logo" src="assets/brand-update/logo-transparent.png" alt="SUN&amp;GLOW" width="1372" height="1146"><strong aria-hidden="true">SUN&amp;GLOW</strong></div><h2 id="featured-title">데일리 선미스트 세트</h2><p class="size">60ml 본품 + 15ml 미니</p><p class="description">하나의 세트로,<br>일상도, 아웃도어도 언제나 산뜻하게.</p><a class="button lime" href="#apply" data-event="cta_click" data-placement="featured" data-cta-id="featured_set" data-target-section="apply" data-product-id="daily_set">세트 자세히 보기 <span aria-hidden="true">›</span></a></div>
   </section>
 
-  <section class="moments wrap" aria-label="일상에 맞춘 선케어">
-    <a class="moment" href="#apply"><div class="photo scene-home" role="img" aria-label="집에서 수건과 함께 준비한 본품"><img src="assets/hd/home-large.webp" srcset="assets/hd/home-small.webp 768w, assets/hd/home-large.webp 1659w" sizes="(max-width:700px) 45vw, 390px" alt="" loading="lazy" decoding="async" width="1659" height="948"></div><div class="moment-copy"><span class="number">01</span><h2>집에서는 본품</h2><p>집에서 러닝을<br>준비할 때</p></div></a>
-    <a class="moment" href="#apply"><div class="photo scene-bag" role="img" aria-label="러닝백에 가볍게 담긴 미니 선미스트"><img src="assets/hd/bag-large.webp" srcset="assets/hd/bag-small.webp 768w, assets/hd/bag-large.webp 1564w" sizes="(max-width:700px) 45vw, 390px" alt="" loading="lazy" decoding="async" width="1564" height="1006"></div><div class="moment-copy"><span class="number">02</span><h2>러닝백에는 미니</h2><p>외출할 때<br>가볍게 챙기기</p></div></a>
-    <a class="moment" href="#apply"><div class="photo scene-set" role="img" aria-label="본품과 미니로 구성한 한 세트"><img src="assets/hd/set-large.webp" srcset="assets/hd/set-small.webp 768w, assets/hd/set-large.webp 1564w" sizes="(max-width:700px) calc(100vw - 36px), 590px" alt="" loading="lazy" decoding="async" width="1564" height="1006"></div><div class="moment-copy"><span class="number">03</span><h2>함께 챙기는 한 세트</h2><p>집에서도, 러닝 중에도.<br>하나의 세트로 언제나 산뜻하게.</p></div></a>
+  <section data-section-id="moments" class="moments wrap" aria-label="일상에 맞춘 선케어">
+    <a class="moment" href="#apply" data-event="cta_click" data-placement="moments" data-cta-id="moment_home" data-target-section="apply" data-product-id="full_60ml" data-content-id="home"><div class="photo scene-home" role="img" aria-label="집에서 수건과 함께 준비한 본품"><img src="assets/hd/home-large.webp" srcset="assets/hd/home-small.webp 768w, assets/hd/home-large.webp 1659w" sizes="(max-width:700px) 45vw, 390px" alt="" loading="lazy" decoding="async" width="1659" height="948"></div><div class="moment-copy"><span class="number">01</span><h2>집에서는 본품</h2><p>집에서 러닝을<br>준비할 때</p></div></a>
+    <a class="moment" href="#apply" data-event="cta_click" data-placement="moments" data-cta-id="moment_bag" data-target-section="apply" data-product-id="mini_15ml" data-content-id="running_bag"><div class="photo scene-bag" role="img" aria-label="러닝백에 가볍게 담긴 미니 선미스트"><img src="assets/hd/bag-large.webp" srcset="assets/hd/bag-small.webp 768w, assets/hd/bag-large.webp 1564w" sizes="(max-width:700px) 45vw, 390px" alt="" loading="lazy" decoding="async" width="1564" height="1006"></div><div class="moment-copy"><span class="number">02</span><h2>러닝백에는 미니</h2><p>외출할 때<br>가볍게 챙기기</p></div></a>
+    <a class="moment" href="#apply" data-event="cta_click" data-placement="moments" data-cta-id="moment_set" data-target-section="apply" data-product-id="daily_set" data-content-id="set"><div class="photo scene-set" role="img" aria-label="본품과 미니로 구성한 한 세트"><img src="assets/hd/set-large.webp" srcset="assets/hd/set-small.webp 768w, assets/hd/set-large.webp 1564w" sizes="(max-width:700px) calc(100vw - 36px), 590px" alt="" loading="lazy" decoding="async" width="1564" height="1006"></div><div class="moment-copy"><span class="number">03</span><h2>함께 챙기는 한 세트</h2><p>집에서도, 러닝 중에도.<br>하나의 세트로 언제나 산뜻하게.</p></div></a>
   </section>
 
   <section class="products wrap" id="best" aria-labelledby="best-title">
     <div class="section-title"><h2 id="best-title">BEST ITEMS</h2><p>SUN&amp;GLOW의 선케어를 만나보세요!</p></div>
     <div class="product-grid">
-      <a class="product" href="#apply"><div class="photo scene-set" role="img" aria-label="데일리 선미스트 세트"><img src="assets/hd/set-large.webp" srcset="assets/hd/set-small.webp 768w, assets/hd/set-large.webp 1564w" sizes="(max-width:700px) calc(100vw - 36px), 590px" alt="" loading="lazy" decoding="async" width="1564" height="1006"></div><div class="product-copy"><h3>데일리 선미스트 세트</h3><p>60ml 본품 + 15ml 미니</p><span class="arrow" aria-hidden="true">→</span></div></a>
-      <a class="product" href="#apply"><div class="photo scene-full" role="img" aria-label="60ml 본품 선미스트"><img src="assets/hd/full-large.webp" srcset="assets/hd/full-small.webp 768w, assets/hd/full-large.webp 1564w" sizes="(max-width:700px) 45vw, 390px" alt="" loading="lazy" decoding="async" width="1564" height="1006"></div><div class="product-copy"><h3>60ml 본품</h3><p>러닝을 준비하는 일상에</p><span class="arrow" aria-hidden="true">→</span></div></a>
-      <a class="product" href="#apply"><div class="photo scene-mini" role="img" aria-label="15ml 미니 선미스트"><img src="assets/hd/mini-large.webp" srcset="assets/hd/mini-small.webp 768w, assets/hd/mini-large.webp 1564w" sizes="(max-width:700px) 45vw, 390px" alt="" loading="lazy" decoding="async" width="1564" height="1006"></div><div class="product-copy"><h3>15ml 미니</h3><p>가방 속 가벼운 러닝 메이트</p><span class="arrow" aria-hidden="true">→</span></div></a>
+      <a class="product" href="#apply" data-event="select_item" data-placement="best" data-cta-id="best_set" data-target-section="apply" data-product-id="daily_set"><div class="photo scene-set" role="img" aria-label="데일리 선미스트 세트"><img src="assets/hd/set-large.webp" srcset="assets/hd/set-small.webp 768w, assets/hd/set-large.webp 1564w" sizes="(max-width:700px) calc(100vw - 36px), 590px" alt="" loading="lazy" decoding="async" width="1564" height="1006"></div><div class="product-copy"><h3>데일리 선미스트 세트</h3><p>60ml 본품 + 15ml 미니</p><span class="arrow" aria-hidden="true">→</span></div></a>
+      <a class="product" href="#apply" data-event="select_item" data-placement="best" data-cta-id="best_full" data-target-section="apply" data-product-id="full_60ml"><div class="photo scene-full" role="img" aria-label="60ml 본품 선미스트"><img src="assets/hd/full-large.webp" srcset="assets/hd/full-small.webp 768w, assets/hd/full-large.webp 1564w" sizes="(max-width:700px) 45vw, 390px" alt="" loading="lazy" decoding="async" width="1564" height="1006"></div><div class="product-copy"><h3>60ml 본품</h3><p>러닝을 준비하는 일상에</p><span class="arrow" aria-hidden="true">→</span></div></a>
+      <a class="product" href="#apply" data-event="select_item" data-placement="best" data-cta-id="best_mini" data-target-section="apply" data-product-id="mini_15ml"><div class="photo scene-mini" role="img" aria-label="15ml 미니 선미스트"><img src="assets/hd/mini-large.webp" srcset="assets/hd/mini-small.webp 768w, assets/hd/mini-large.webp 1564w" sizes="(max-width:700px) 45vw, 390px" alt="" loading="lazy" decoding="async" width="1564" height="1006"></div><div class="product-copy"><h3>15ml 미니</h3><p>가방 속 가벼운 러닝 메이트</p><span class="arrow" aria-hidden="true">→</span></div></a>
     </div>
   </section>
 
   <section id="story" class="story" aria-labelledby="story-title">
-    <div class="water-banner"><div class="banner-copy"><p>STORY</p><h2 id="story-title">달리는 일상에,<br><em>가벼운 선케어를 더하다.</em></h2><a class="button lime story-cta" href="#apply" id="cta-story">선미스트 세트 구매하기 <span aria-hidden="true">→</span></a></div><picture class="banner-media"><source media="(max-width:700px)" srcset="assets/hd/unified-story-mobile-small.webp 768w, assets/hd/unified-story-mobile-large.webp 1122w" sizes="100vw"><img class="banner-photo" src="assets/hd/unified-story-large.webp" srcset="assets/hd/unified-story-small.webp 768w, assets/hd/unified-story-large.webp 2172w" sizes="100vw" alt="벤치에서 쉬는 러너와 정면을 보며 따봉하는 선앤글로우 마스코트" loading="lazy" decoding="async" width="2172" height="724"></picture></div>
-    <div class="story-inner wrap"><div class="photo scene-mascot" role="img" aria-label="강변 트랙을 달리는 선앤글로우 햇살 캐릭터"><img src="assets/hd/mascot-large.webp" srcset="assets/hd/mascot-small.webp 768w, assets/hd/mascot-large.webp 1564w" sizes="(max-width:700px) calc(100vw - 36px), 590px" alt="" loading="lazy" decoding="async" width="1564" height="1006"></div><div class="story-copy"><h3>준비는 가볍게,<br>마음은 러닝에.</h3><p>달리러 나서는 순간에도,<br>잠깐 쉬어가는 순간에도.<br>간편하게 챙기는 선케어를 제안해요.</p><a class="text-link" href="#apply">나의 러닝 메이트 만나기 <span aria-hidden="true">→</span></a></div></div>
+    <div class="water-banner"><div class="banner-copy"><p>STORY</p><h2 id="story-title">달리는 일상에,<br><em>가벼운 선케어를 더하다.</em></h2><a class="button lime story-cta" href="#apply" id="cta-story" data-event="cta_click" data-placement="story_banner" data-cta-id="cta_story" data-target-section="apply" data-product-id="daily_set">선미스트 세트 구매하기 <span aria-hidden="true">→</span></a></div><picture class="banner-media"><source media="(max-width:700px)" srcset="assets/hd/unified-story-mobile-small.webp 768w, assets/hd/unified-story-mobile-large.webp 1122w" sizes="100vw"><img class="banner-photo" src="assets/hd/unified-story-large.webp" srcset="assets/hd/unified-story-small.webp 768w, assets/hd/unified-story-large.webp 2172w" sizes="100vw" alt="벤치에서 쉬는 러너와 정면을 보며 따봉하는 선앤글로우 마스코트" loading="lazy" decoding="async" width="2172" height="724"></picture></div>
+    <div class="story-inner wrap"><div class="photo scene-mascot" role="img" aria-label="강변 트랙을 달리는 선앤글로우 햇살 캐릭터"><img src="assets/hd/mascot-large.webp" srcset="assets/hd/mascot-small.webp 768w, assets/hd/mascot-large.webp 1564w" sizes="(max-width:700px) calc(100vw - 36px), 590px" alt="" loading="lazy" decoding="async" width="1564" height="1006"></div><div class="story-copy"><h3>준비는 가볍게,<br>마음은 러닝에.</h3><p>달리러 나서는 순간에도,<br>잠깐 쉬어가는 순간에도.<br>간편하게 챙기는 선케어를 제안해요.</p><a class="text-link" href="#apply" data-event="cta_click" data-placement="story_body" data-cta-id="story_mate" data-target-section="apply" data-product-id="daily_set">나의 러닝 메이트 만나기 <span aria-hidden="true">→</span></a></div></div>
   </section>
 
   <section class="how-to wrap" id="how-to" aria-labelledby="how-title">
@@ -68,9 +69,9 @@
     </div>
   </section>
 
-  <section class="film" aria-labelledby="film-title"><div class="section-title"><h2 id="film-title">SUN&amp;GLOW FILM</h2><p>러닝을 준비하는 순간을 만나보세요.</p></div><div class="film-visual"><div class="photo scene-runners" role="img" aria-label="햇살 아래 강변을 함께 달리는 두 러너"><img src="assets/hd/runners-large.webp" srcset="assets/hd/runners-small.webp 768w, assets/hd/runners-large.webp 2172w" sizes="100vw" alt="" loading="lazy" decoding="async" width="2172" height="724"></div><span class="film-label">브랜드 필름 준비 중</span></div></section>
+  <section data-section-id="film" class="film" aria-labelledby="film-title"><div class="section-title"><h2 id="film-title">SUN&amp;GLOW FILM</h2><p>러닝을 준비하는 순간을 만나보세요.</p></div><div class="film-visual"><div class="photo scene-runners" role="img" aria-label="햇살 아래 강변을 함께 달리는 두 러너"><img src="assets/hd/runners-large.webp" srcset="assets/hd/runners-small.webp 768w, assets/hd/runners-large.webp 2172w" sizes="100vw" alt="" loading="lazy" decoding="async" width="2172" height="724"></div><span class="film-label">브랜드 필름 준비 중</span></div></section>
 
-  <section class="closing"><div class="closing-inner wrap"><p class="eyebrow">YOUR EVERYDAY RUNNING MATE</p><h2>오늘의 러닝을<br>준비해볼까요?</h2><p>60ml 본품 + 15ml 미니 · 데일리 선미스트 세트</p><a class="button lime" href="#apply">세트 자세히 보기 <span aria-hidden="true">›</span></a></div><picture class="banner-media"><source media="(max-width:700px)" srcset="assets/hd/unified-closing-mobile-small.webp 768w, assets/hd/unified-closing-mobile-large.webp 1122w" sizes="100vw"><img class="banner-photo" src="assets/hd/unified-closing-large.webp" srcset="assets/hd/unified-closing-small.webp 768w, assets/hd/unified-closing-large.webp 2172w" sizes="100vw" alt="러닝백과 무지 운동화, 선미스트 본품과 미니를 함께 챙긴 모습" loading="lazy" decoding="async" width="2172" height="724"></picture></section>
+  <section data-section-id="closing" class="closing"><div class="closing-inner wrap"><p class="eyebrow">YOUR EVERYDAY RUNNING MATE</p><h2>오늘의 러닝을<br>준비해볼까요?</h2><p>60ml 본품 + 15ml 미니 · 데일리 선미스트 세트</p><a class="button lime" href="#apply" data-event="cta_click" data-placement="closing" data-cta-id="closing_set" data-target-section="apply" data-product-id="daily_set">세트 자세히 보기 <span aria-hidden="true">›</span></a></div><picture class="banner-media"><source media="(max-width:700px)" srcset="assets/hd/unified-closing-mobile-small.webp 768w, assets/hd/unified-closing-mobile-large.webp 1122w" sizes="100vw"><img class="banner-photo" src="assets/hd/unified-closing-large.webp" srcset="assets/hd/unified-closing-small.webp 768w, assets/hd/unified-closing-large.webp 2172w" sizes="100vw" alt="러닝백과 무지 운동화, 선미스트 본품과 미니를 함께 챙긴 모습" loading="lazy" decoding="async" width="2172" height="724"></picture></section>
 
   <section class="apply wrap" id="apply" aria-labelledby="apply-title">
     <div class="apply-info"><p class="eyebrow">SUN&amp;GLOW DAILY SET</p><h2 id="apply-title">본품 + 미니어처 세트</h2><p class="price">16,900원 <small>수업용 예시 가격</small></p><p>60ml 본품에 러닝용 15ml 미니어처를 더했습니다.</p><dl class="spec"><div><dt>자외선 차단</dt><dd>SPF50+ PA++++</dd></div><div><dt>구성</dt><dd>60ml 본품 + 15ml 미니어처</dd></div><div><dt>사용 대상</dt><dd>얼굴·몸 겸용</dd></div></dl><p class="education">수업용 콘셉트 페이지입니다.<br>실제 판매·결제·배송은 진행하지 않습니다.</p></div>
@@ -83,15 +84,17 @@
     </form>
   </section>
 </main>
-<footer class="footer"><div class="footer-inner wrap"><a class="brand" href="./"><img class="brand-logo" src="assets/brand-update/logo-transparent.png" alt="SUN&amp;GLOW" width="1372" height="1146"><strong aria-hidden="true">SUN&amp;GLOW</strong></a><nav aria-label="하단 메뉴"><a href="#best">제품</a><a href="#how-to">사용법</a><a href="#story">브랜드 스토리</a><a href="#" data-privacy-open>개인정보 안내</a></nav><p>수업용 콘셉트 · 실제 판매하지 않습니다.<br>© SUN&amp;GLOW</p></div></footer>
+<footer class="footer"><div class="footer-inner wrap"><a class="brand" href="./" data-event="navigation_click" data-placement="footer" data-cta-id="footer_home" data-target-section="home"><img class="brand-logo" src="assets/brand-update/logo-transparent.png" alt="SUN&amp;GLOW" width="1372" height="1146"><strong aria-hidden="true">SUN&amp;GLOW</strong></a><nav aria-label="하단 메뉴"><a href="#best" data-event="navigation_click" data-placement="footer" data-cta-id="footer_products" data-target-section="best">제품</a><a href="#how-to" data-event="navigation_click" data-placement="footer" data-cta-id="footer_how_to" data-target-section="how_to">사용법</a><a href="#story" data-event="navigation_click" data-placement="footer" data-cta-id="footer_story" data-target-section="story">브랜드 스토리</a><a href="#" data-privacy-open>개인정보 안내</a></nav><p>수업용 콘셉트 · 실제 판매하지 않습니다.<br>© SUN&amp;GLOW</p></div></footer>
 <div class="modal" id="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title" aria-hidden="true">
   <div class="modal-box">
-    <span class="badge">개인정보 미수집 · 즉시 파기</span>
+    <span class="badge">폼 입력값 미수집 · 즉시 파기</span>
     <h2 id="privacy-title">개인정보 처리 안내</h2>
     <ol>
-      <li><strong>입력하신 정보는 절대 저장하지 않습니다.</strong> 서버, 데이터베이스, 스프레드시트, 이메일, 외부 서비스 어디로도 전송되지 않습니다.</li>
+      <li><strong>폼에 입력하신 이름·연락처는 절대 저장하지 않습니다.</strong> 서버, 데이터베이스, 스프레드시트, 이메일, 외부 서비스 어디로도 전송되지 않습니다.</li>
       <li>입력값은 이 브라우저 화면에만 잠시 머물며, 완료 버튼을 누르는 <strong>즉시 화면에서 지워집니다.</strong> 쿠키나 브라우저 저장소에도 남기지 않습니다.</li>
       <li>페이지 제작자와 강사를 포함한 <strong>누구도 입력값을 볼 수 없습니다.</strong></li>
+      <li>방문·버튼 클릭·신청 체험 완료 등 이용 통계를 Google Analytics 4로 측정합니다. 분석용 쿠키와 기기·접속 정보가 사용될 수 있으며, 폼에 입력한 이름·연락처는 분석 도구로 전송하지 않습니다.</li>
+      <li>아래 체크는 신청 체험 안내 확인용이며, 분석용 쿠키 수집 동의가 아닙니다.</li>
     </ol>
     <label><input type="checkbox" id="privacy-agree"> 위 내용을 확인했으며, 입력값이 저장되지 않고 즉시 파기된다는 점에 동의합니다.</label>
     <div class="modal-actions">

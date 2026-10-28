@@ -30,16 +30,11 @@
 - `id="cta-main"`, `id="lead-form"`, `id="cta-submit"`: GA4·픽셀 이벤트가 이 이름을 씁니다.
 - `privacy.js`의 "입력값을 지우고 result.html로 이동" 부분.
 
-## 분석 도구 붙이는 자리
+## 분석 도구
 
-`index.html`과 `result.html`의 `<head>` 안에 주석으로 자리를 만들어 두었습니다.
+GA4 측정 ID `G-YL5MC7J7NG`를 `analytics.js`에서 공통 사용합니다. 이벤트 명세·주요 이벤트 등록·향상된 측정 중복 방지·검증 방법은 [GA4 운영 설정](docs/ga4.md)을 참고하세요. 신청 체험 완료 이벤트는 `demo_lead_complete`이며 실제 판매나 리드 접수로 집계하지 않습니다.
 
-- `<!-- GA4 -->` Day 34
-- `<!-- Meta Pixel -->` Day 35
-- `<!-- Microsoft Clarity -->` Day 38
-- `<!-- Schema JSON-LD -->` Day 29
-
-분석 도구를 붙이면 `index.html` 안 개인정보 안내 팝업에 "익명 방문 통계를 집계할 수 있다"는 항목을 추가해야 합니다(문구는 팝업 안 5번 항목 예시 참고).
+`index.html`의 개인정보 안내에 행동 통계 측정을 안내합니다. 이름·연락처 입력값은 분석 도구에 전송하지 않습니다. Meta Pixel·Microsoft Clarity·Schema JSON-LD 자리는 아직 주석으로 남아 있습니다.
 
 ## 개인정보 약속 (중요)
 

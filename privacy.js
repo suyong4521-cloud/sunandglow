@@ -12,6 +12,11 @@
   var ok = document.getElementById('privacy-ok');
   var cancel = document.getElementById('privacy-cancel');
   var mode = 'info';
+  var completing = false;
+
+  function track(name, params) {
+    if (typeof window.sunGlowTrack === 'function') window.sunGlowTrack(name, params);
+  }
 
   function wipe() {
     if (!form) return;
@@ -22,7 +27,7 @@
     form.reset();
   }
 
-  function open(m) {
+  function open(m, placement) {
     mode = m;
     agree.checked = false;
     ok.disabled = true;
@@ -30,35 +35,64 @@
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
     agree.focus();
+    track('privacy_notice_open', { modal_mode: mode, placement: placement || 'lead_form' });
   }
 
-  function close() {
+  function close(method) {
+    if (!modal.classList.contains('open') || completing) return;
+    track('privacy_notice_close', { modal_mode: mode, close_method: method });
     modal.classList.remove('open');
     modal.setAttribute('aria-hidden', 'true');
   }
 
-  agree.addEventListener('change', function () { ok.disabled = !agree.checked; });
-  cancel.addEventListener('click', close);
-  modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  agree.addEventListener('change', function () {
+    ok.disabled = !agree.checked;
+    track('privacy_acknowledgement_change', { modal_mode: mode, checked: agree.checked });
+  });
+  cancel.addEventListener('click', function () { close('button'); });
+  modal.addEventListener('click', function (e) { if (e.target === modal) close('backdrop'); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close('escape'); });
 
   ok.addEventListener('click', function () {
-    if (mode !== 'submit') { close(); return; }
+    if (!agree.checked || completing) return;
+    if (mode !== 'submit') { close('confirm'); return; }
+    completing = true;
+    ok.disabled = true;
     wipe();
-    // 분석 도구를 붙였다면 여기서 개인정보 없이 이벤트 이름만 보냅니다 (Day 34~35).
-    if (typeof window.gtag === 'function') window.gtag('event', 'generate_lead');
-    if (typeof window.fbq === 'function') window.fbq('track', 'Lead');
-    location.replace('result.html');
+    var navigated = false;
+    function finish() {
+      if (navigated) return;
+      navigated = true;
+      location.replace('result.html');
+    }
+    // Always finish even when analytics is blocked or never invokes its callback.
+    setTimeout(finish, 1000);
+    try {
+      track('demo_lead_complete', {
+        form_id: 'lead_form', product_id: 'daily_set',
+        event_callback: finish, event_timeout: 800
+      });
+    } catch (_) { finish(); }
   });
 
   document.querySelectorAll('[data-privacy-open]').forEach(function (b) {
-    b.addEventListener('click', function (e) { e.preventDefault(); open('info'); });
+    b.addEventListener('click', function (e) { e.preventDefault(); open('info', b.closest('footer') ? 'footer' : 'lead_form'); });
   });
 
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var valid = form.checkValidity();
+      track('lead_submit_attempt', { form_id: 'lead_form', validation_result: valid ? 'valid' : 'invalid' });
+      if (!valid) {
+        form.querySelectorAll('input').forEach(function (input) {
+          if (input.validity.valid) return;
+          track('form_validation_error', { form_id: 'lead_form',
+            field_id: input.id === 'f-name' ? 'name' : 'contact',
+            error_type: input.validity.valueMissing ? 'required' : 'pattern' });
+        });
+        form.reportValidity(); return;
+      }
       open('submit');
     });
   }
