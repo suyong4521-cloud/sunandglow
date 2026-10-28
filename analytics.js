@@ -2,8 +2,11 @@
 (function () {
   'use strict';
   var measurementId = 'G-YL5MC7J7NG';
-  var pageType = document.getElementById('lead-form') ? 'landing' : 'result';
-  var debug = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+  var pageType = document.body.dataset.pageType || (document.getElementById('lead-form') ? 'landing' : 'result');
+  var debug = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) || pageType === 'diagnostic';
+  var status = window.sunGlowAnalyticsStatus = {
+    measurementId: measurementId, loader: 'loading', eventCount: 0, lastEvent: ''
+  };
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
   // Drop arbitrary query strings/fragments; retain only standard campaign attribution.
@@ -24,9 +27,13 @@
   var script = document.createElement('script');
   script.async = true;
   script.src = 'https://www.googletagmanager.com/gtag/js?id=' + measurementId;
+  script.onload = function () { status.loader = 'loaded'; };
+  script.onerror = function () { status.loader = 'failed'; };
   document.head.appendChild(script);
 
   function track(name, params) {
+    status.eventCount += 1;
+    status.lastEvent = name;
     window.gtag('event', name, Object.assign({
       send_to: measurementId, page_type: pageType, flow_type: 'demo',
       page_location: pageLocation, page_referrer: referrer

@@ -126,6 +126,27 @@ let browser;
     event.params.event_callback();
   });
   await page.waitForURL('**/result.html');
+  // Diagnostic UI distinguishes blocked loader from loaded script / observed request.
+  await page.goto(base + '/analytics-check.html');
+  await page.waitForFunction(() => window.sunGlowAnalyticsStatus.loader === 'failed');
+  await page.waitForFunction(() => document.getElementById('loader').textContent === '로드 실패');
+  assert((await page.locator('#result').textContent()).includes('불러오지 못했습니다'));
+  await context.route('https://www.googletagmanager.com/gtag/js?*', route => route.fulfill({
+    contentType: 'text/javascript', body: '// Simulated loader, not Google ingestion.'
+  }));
+  await context.route('https://www.google-analytics.com/g/collect?*', route => route.fulfill({
+    status: 204, headers: { 'access-control-allow-origin': '*' }
+  }));
+  await page.goto(base + '/analytics-check.html');
+  await page.waitForFunction(() => window.__events.some(e => e.name === 'analytics_connection_test'));
+  assert.equal((await events('analytics_connection_test')).length, 1);
+  assert.equal((await events('page_view'))[0].params.page_type, 'diagnostic');
+  assert((await page.locator('#loader').textContent()).includes('로딩 완료'));
+  await page.evaluate(() => fetch('https://www.google-analytics.com/g/collect?tid=G-YL5MC7J7NG'));
+  await page.waitForFunction(() => document.getElementById('collection').textContent.includes('요청 발생 관찰됨'));
+  await page.locator('#retry').click();
+  assert.equal((await events('analytics_connection_test')).length, 2);
+  assert.equal((await events('demo_lead_complete')).length, 0);
   // Test that a complete analytics script failure still permits submission.
   await context.route('**/analytics.js', route => route.abort());
   await page.goto(base + '/');
