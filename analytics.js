@@ -38,6 +38,21 @@
       send_to: measurementId, page_type: pageType, flow_type: 'demo',
       page_location: pageLocation, page_referrer: referrer
     }, params || {}));
+    // Keep page views and scroll-driven impressions out of the Meta event bridge.
+    if (name === 'page_view' || /scroll/i.test(name) ||
+        name === 'section_view' || name === 'view_item_list') return;
+    var metaEvents = {
+      generate_lead: 'Lead', sign_up: 'CompleteRegistration', contact_click: 'Contact',
+      view_item: 'ViewContent', add_to_cart: 'AddToCart', begin_checkout: 'InitiateCheckout',
+      purchase: 'Purchase', search: 'Search'
+    };
+    if (name === 'purchase') {
+      if (window.fbq) fbq('track', 'Purchase', { value: params && params.value, currency: 'KRW' });
+    } else if (Object.prototype.hasOwnProperty.call(metaEvents, name)) {
+      if (window.fbq) fbq('track', metaEvents[name]);
+    } else {
+      if (window.fbq) fbq('trackCustom', name);
+    }
   }
   window.sunGlowTrack = track;
   track('page_view');
