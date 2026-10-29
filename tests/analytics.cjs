@@ -19,14 +19,15 @@ let browser;
   const base = `http://127.0.0.1:${port}`;
   browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || '/usr/bin/chromium', args: ['--no-sandbox'] });
   const context = await browser.newContext();
-  // Do not send test traffic or synthetic values to Google.
+  // Do not send test traffic or synthetic values to external analytics services.
   await context.route('https://**/*', route => route.abort());
   await context.addInitScript(() => {
     window.__events = [];
-    window.gtag = function () {
-      const args = Array.from(arguments);
+    window.dataLayer = [];
+    window.dataLayer.push = function (entry) {
+      const args = Array.from(entry);
       window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push(args);
+      Array.prototype.push.call(window.dataLayer, entry);
       if (args[0] === 'event') window.__events.push({ name: args[1], params: args[2],
         inputs: [...document.querySelectorAll('#lead-form input')].map(i => i.value) });
     };
@@ -34,13 +35,19 @@ let browser;
   const page = await context.newPage();
   const errors = [];
   page.on('pageerror', e => errors.push(e.message));
-  const events = name => page.evaluate(name => window.__events.filter(e => e.name === name), name);
+  const events = name => page.evaluate(name => {
+    const ga4 = window.__events.filter(e => e.name === name);
+    const meta = window.fbq.queue.filter(e => e[0] === 'trackCustom' && e[1] === name);
+    const excluded = ['page_view', 'section_view', 'view_item_list'].includes(name) || /scroll/i.test(name);
+    if (meta.length !== (excluded ? 0 : ga4.length)) throw Error('Meta event count mismatch: ' + name);
+    return ga4;
+  }, name);
   await page.goto(base + '/?name=PRIVATE_QUERY&utm_source=test#PRIVATE_HASH');
   assert.equal((await events('page_view')).length, 1);
   const pv = (await events('page_view'))[0].params;
   assert(!JSON.stringify(pv).includes('PRIVATE'));
   assert(pv.page_location.includes('utm_source=test'));
-  assert.equal(await page.locator('script[src*="googletagmanager"]').getAttribute('src'),
+  assert.equal(await page.locator('script[src*="googletagmanager.com/gtag/js"]').getAttribute('src'),
     'https://www.googletagmanager.com/gtag/js?id=G-YL5MC7J7NG');
 
   // Every annotated link reports exactly one event, including clicks on its children.
@@ -162,7 +169,7 @@ let browser;
   assert.equal((await events('analytics_connection_test')).length, 2);
   assert.equal((await events('demo_lead_complete')).length, 0);
   // Test that a complete analytics script failure still permits submission.
-  await context.route('**/analytics.js', route => route.abort());
+  await context.route(/\/analytics\.js(?:\?.*)?$/, route => route.abort());
   await page.goto(base + '/');
   await page.locator('#f-name').fill('테스트');
   await page.locator('#f-contact').fill('010-1234-5678');

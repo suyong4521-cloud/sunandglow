@@ -34,7 +34,7 @@
 
 GA4 측정 ID `G-YL5MC7J7NG`를 `analytics.js`에서 공통 사용합니다. 이벤트 명세·주요 이벤트 등록·향상된 측정 중복 방지·검증 방법은 [GA4 운영 설정](docs/ga4.md)을 참고하세요. 신청 체험 완료 이벤트는 `demo_lead_complete`이며 실제 판매나 리드 접수로 집계하지 않습니다.
 
-`index.html`의 개인정보 안내에 행동 통계 측정을 안내합니다. 이름·연락처 입력값은 분석 도구에 전송하지 않습니다. Meta Pixel·Microsoft Clarity·Schema JSON-LD 자리는 아직 주석으로 남아 있습니다.
+`index.html`의 개인정보 안내에 행동 통계 측정을 안내합니다. 이름·연락처 입력값은 분석 도구에 전송하지 않습니다. Meta Pixel `1090501856926618`은 모든 HTML에 설치되어 있으며, GA4 이벤트 연동·전송 진단은 [Meta 픽셀 운영 설정](docs/meta.md)을 참고하세요. Microsoft Clarity·Schema JSON-LD 자리는 아직 주석으로 남아 있습니다.
 
 ## 개인정보 약속 (중요)
 
