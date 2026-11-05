@@ -291,3 +291,6 @@ footer.dark{background:#16161a;color:#cfcfd4;opacity:1;border:0}
   .hero.center{padding:72px 0 56px}
   .apply-split .form-img{display:none}
 }
+
+/* Fragment targets on the completion page (no sticky header). */
+section[id],[id].anchor{scroll-margin-top:16px}
